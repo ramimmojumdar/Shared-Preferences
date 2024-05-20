@@ -14,9 +14,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 public class MainActivity extends AppCompatActivity {
 
-    EditText edText;
+    TextInputEditText edName, edAge, edEmail, edPhone, edPassport;
     AppCompatButton btn1, btn2;
 
     SharedPreferences sharedPreferences;
@@ -28,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        edText = findViewById(R.id.edText);
+        edName = findViewById(R.id.edName);
+        edAge = findViewById(R.id.edAge);
+        edEmail = findViewById(R.id.edEmail);
+        edPhone= findViewById(R.id.edPhone);
+        edPassport = findViewById(R.id.edPassport);
+
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
 
@@ -67,8 +74,17 @@ public class MainActivity extends AppCompatActivity {
     //=============================
     //=============================
     public void saveMethod(){
-        String myString = edText.getText().toString();
-        editor.putString("name", myString);
+        String nameStr = edName.getText().toString();
+        String ageStr = edAge.getText().toString();
+        String emailStr = edEmail.getText().toString();
+        String phoneStr = edPhone.getText().toString();
+        String passportStr = edPassport.getText().toString();
+
+        editor.putString("name", nameStr);
+        editor.putString("age", ageStr);
+        editor.putString("email", emailStr);
+        editor.putString("phone", phoneStr);
+        editor.putString("passport", passportStr);
         editor.apply();
     }
 

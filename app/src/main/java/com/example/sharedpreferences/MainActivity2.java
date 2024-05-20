@@ -26,8 +26,19 @@ public class MainActivity2 extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(""+getString(R.string.app_name), MODE_PRIVATE);
 
         String name = sharedPreferences.getString("name", "Default Value");
+        String age = sharedPreferences.getString("age", "Default Value");
+        String email = sharedPreferences.getString("email", "Default Value");
+        String phone = sharedPreferences.getString("phone", "Default Value");
+        String passport = sharedPreferences.getString("passport", "Default Value");
 
-        saveText.setText(name);
+        String[] array = {name, age, email, phone, passport};
+
+        for(int x=0; x<array.length; x++){
+            saveText.append(array[x]+" \n");
+        }
+
+
+
 
     }
 }
